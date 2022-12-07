@@ -11,9 +11,10 @@ import com.jonahseguin.drink.exception.CommandExitMessage;
 import com.jonahseguin.drink.parametric.CommandParameter;
 import com.jonahseguin.drink.parametric.DrinkProvider;
 
-import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Nonnull;
 
 public class ArgumentParser {
 
@@ -133,7 +134,7 @@ public class ArgumentParser {
             if (provider.doesConsumeArgument()) {
 
                 if (!args.hasNext()) {
-                    throw new CommandArgumentException("Missing argument for: " + provider.argumentDescription());
+                    throw new CommandArgumentException("引数が見つかりません: " + provider.argumentDescription());
                 }
 
                 value = args.next();

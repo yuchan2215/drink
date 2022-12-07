@@ -38,20 +38,20 @@ public class DrinkCommandExecutor implements CommandExecutor {
                             commandService.getHelpService().sendHelpFor(sender, container);
                             return true;
                         }
-                        sender.sendMessage(ChatColor.RED + "Unknown sub-command: " + args[0] + ".  Use '/" + label + " help' for available commands.");
+                        sender.sendMessage(ChatColor.RED + "不明なサブコマンド: " + args[0] + ".  '/" + label + " help' で利用可能なコマンドを確認できます。");
                     } else {
                         if (container.isDefaultCommandIsHelp()) {
                             commandService.getHelpService().sendHelpFor(sender, container);
                         }
                         else {
-                            sender.sendMessage(ChatColor.RED + "Please choose a sub-command.  Use '/" + label + " help' for available commands.");
+                            sender.sendMessage(ChatColor.RED + "サブコマンドを選択してください。  '/" + label + " help' で利用可能なコマンドを確認できます。");
                         }
                     }
                 }
                 return true;
             }
             catch (Exception ex) {
-                sender.sendMessage(ChatColor.RED + "An exception occurred while performing this command.");
+                sender.sendMessage(ChatColor.RED + "コマンドの実行中に例外が発生しました。");
                 ex.printStackTrace();
             }
         }
