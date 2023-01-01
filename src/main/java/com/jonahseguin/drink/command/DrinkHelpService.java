@@ -6,6 +6,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 
@@ -34,7 +35,11 @@ public class DrinkHelpService {
                 Arrays.stream(msgArray).forEach(msg -> {
                     msg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, TextComponent.fromLegacyText(ChatColor.GRAY + "/" + container.getName() + " " + c.getName() + " - " + ChatColor.WHITE + c.getDescription())));
                     msg.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/" + container.getName() + " " + c.getName()));
-                    sender.spigot().sendMessage(msg);
+                    if (sender instanceof Player) {
+                        ((Player) sender).spigot().sendMessage(msg);
+                    } else {
+                        sender.sendMessage(msg.toPlainText());
+                    }
                 });
 
             }

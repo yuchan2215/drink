@@ -1,16 +1,22 @@
 package com.jonahseguin.drink.command;
 
 import com.google.common.base.Preconditions;
+
 import org.apache.commons.lang.StringUtils;
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginIdentifiableCommand;
 import org.bukkit.plugin.Plugin;
 
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.*;
 
 public class DrinkCommandContainer extends Command implements PluginIdentifiableCommand {
 
@@ -125,10 +131,11 @@ public class DrinkCommandContainer extends Command implements PluginIdentifiable
         return tabCompleter.onTabComplete(sender, this, alias, args);
     }
 
-    @Override
-    public List<String> tabComplete(CommandSender sender, String alias, String[] args, Location location) throws IllegalArgumentException {
-        return tabCompleter.onTabComplete(sender, this, alias, args);
-    }
+    /**
+     * @Override public List<String> tabComplete(CommandSender sender, String alias, String[] args, Location location) throws IllegalArgumentException {
+     * return tabCompleter.onTabComplete(sender, this, alias, args);
+     * }
+     **/
 
     @Override
     public Plugin getPlugin() {
